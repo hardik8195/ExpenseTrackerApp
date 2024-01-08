@@ -1,20 +1,17 @@
 import { FlatList, Text, View, StyleSheet, Pressable } from "react-native";
 import { GlobalStyles } from "../../constants/styles";
 import { useNavigation } from "@react-navigation/native";
+import { getFormattedDate } from "../../utils/date";
 
 
 export default function ExpensesList({ expenses }) {
     const navigation = useNavigation()
-    const date = new Date()
-    function handlePress(){
-        navigation.navigate('manageExpense')
-    }
     return (
         <FlatList
             data={expenses}
             renderItem={({ item }) => (
                 <Pressable
-                onPress={handlePress} 
+                onPress={()=>navigation.navigate("manageExpense",{expenseId:item.id})} 
                  style={({ pressed }) => pressed && styles.pressed}>
                     <View style={styles.container}>
                         <View style={styles.childContainer}>
@@ -35,7 +32,7 @@ export default function ExpensesList({ expenses }) {
                             </View>
                         </View>
                         <View>
-                            <Text style={{ color: 'white' }}>{date.getFullYear(item.date)}-{date.getMonth() + 1}-{date.getDate()}</Text>
+                            <Text style={{ color: 'white' }}>{item.date}</Text>
                         </View>
                     </View>
                 </Pressable>

@@ -2,6 +2,7 @@ import { Text ,StyleSheet,View} from "react-native";
 import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
 import { GlobalStyles } from "../../constants/styles";
+import { useSelector } from "react-redux";
 
 const DUMMY_EXPENSES = [
     {
@@ -53,12 +54,22 @@ const DUMMY_EXPENSES = [
       date: new Date('2022-02-19')
     },
   ];
-export default function ExpensesOutput({expenses,expensePeriod}){
+export default function ExpensesOutput({expensePeriod,fallBackText}){
+  const Expenses = useSelector((state)=>state.expenses)
+  let content = <Text style={
+    {fontSize:15,
+    color:'white',
+    textAlign:"center",
+    marginTop:15
+    }}>{fallBackText}</Text>
+  if(Expenses.length>0){
+    content = <ExpensesList expenses={Expenses}/>
+  }
     return (
         <>
         <View style={styles.container}>
-        <ExpensesSummary expenses={DUMMY_EXPENSES} PeriodName={expensePeriod}/>
-        <ExpensesList expenses={DUMMY_EXPENSES}/>
+        <ExpensesSummary expenses={Expenses} PeriodName={expensePeriod}/>
+        {content}
         </View>
         </>
     )
