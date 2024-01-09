@@ -5,7 +5,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { GlobalStyles } from "../constants/styles";
 import { addItems, deleteItems } from "../app/ExpenseSlice";
 import { useDispatch } from 'react-redux'
-import Button from "../components/UI/button";
+import Button from "../components/UI/Button";
+import ManageForm from "../components/ManageForm/ManageForm";
 export default function ManageExpense() {
     const route = useRoute();
     const navigation = useNavigation()
@@ -36,6 +37,7 @@ export default function ManageExpense() {
 
     return (
         <View style={styles.container}>
+        <ManageForm />
             <View style={styles.buttonContainer}>
                 <View>
                     <Button>

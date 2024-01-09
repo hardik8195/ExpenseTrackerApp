@@ -11,8 +11,8 @@ export default function ExpensesList({ expenses }) {
             data={expenses}
             renderItem={({ item }) => (
                 <Pressable
-                onPress={()=>navigation.navigate("manageExpense",{expenseId:item.id})} 
-                 style={({ pressed }) => pressed && styles.pressed}>
+                    onPress={() => navigation.navigate("manageExpense", { expenseId: item.id })}
+                    style={({ pressed }) => pressed && styles.pressed}>
                     <View style={styles.container}>
                         <View style={styles.childContainer}>
                             <View>
@@ -37,7 +37,9 @@ export default function ExpensesList({ expenses }) {
                     </View>
                 </Pressable>
 
+
             )}
+            keyExtractor={(item) => item.id}
         />
     )
 }
