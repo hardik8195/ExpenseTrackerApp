@@ -32,7 +32,7 @@ export default function ExpensesList({ expenses }) {
                             </View>
                         </View>
                         <View>
-                            <Text style={{ color: 'white' }}>{item.date}</Text>
+                            <Text style={{ color: 'white' }}>{getFormattedDate(item.date)}</Text>
                         </View>
                     </View>
                 </Pressable>
