@@ -24,7 +24,8 @@ export default function ExpensesList({ expenses }) {
                                 backgroundColor: 'white',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                borderRadius: 5
+                                borderRadius: 5,
+                                marginTop:4
                             }}>
                                 <Text style={{
                                     color: GlobalStyles.colors.primary500,
