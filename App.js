@@ -10,6 +10,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import AddButton from './components/UI/AddButton';
 import { Provider } from 'react-redux';
 import store from './app/store';
+import { StatusBar } from 'expo-status-bar';
 const Stack = createStackNavigator()
 const BottomTab = createBottomTabNavigator()
 
@@ -53,6 +54,7 @@ function Expenses() {
 export default function App() {
   return (
     <Provider store={store}>
+    <StatusBar style="light" />
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
         headerStyle:{backgroundColor:GlobalStyles.colors.primary500},
